@@ -1,3 +1,7 @@
+var path = require('path');
+var _ = require('lodash');
+
+
 /**
  * sails-generate-new
  * 
@@ -7,38 +11,62 @@
  * @type {Object}
  */
 module.exports = {
+
+	bootstrap: function (scope, sb) {
+		_.defaults(scope, {
+			author: 'a Node.js/Sails.js Contributor',
+			year: (new Date()).getFullYear(),
+			appName: 'Untitled'
+		});
+
+		sb();
+	},
+
 	targets: {
 
-		'.': ['backend', 'frontend']
-
-		// './:arg0': { exec: function (scope, cb) {
-		// 	scope.output.push('Running generator (sails-generate-new) @ `'+scope.rootPath+'`...');
-		// 	cb();
-		// } }
+		'.': ['backend','frontend'],
+		'./.gitignore': { copy: path.resolve(__dirname, './templates/gitignore') },
+		'./README.md': { ejs: path.resolve(__dirname, './templates/README.md') },
+		'./package.json': { jsonfile: { data: dataForPackageJSON() } },
+		'./app.js': { copy: path.resolve(__dirname, './templates/app.js') }
 	}
 };
 
 
-// Generator syntax:
-// 
-// You can use params in your target paths:
-// {
-//   './:someScopeVariable/somethingStatic/:somethingDynamicAgain': '...'
-// }
 
-// Other directives:
-// 
-// 
-// Generate a folder: (`folder`)
-// './:arg0/controllers': { folder: {} }
-//
-// Copy a file : (`copy`)
-// './:arg0/someTemplate.foo': { copy: path.resolve(__dirname, './someTemplate.foo') },
-//
-// Render an EJS template: (`ejs`)
-// (note: the template doesn't have to end in *.ejs)
-// './:arg0/someTemplate.ejs': { ejs: path.resolve(__dirname, './someTemplate.ejs') },
-//
-// Run another generator:
-// './:arg0/controllers/:controllerName.js': 'controller'
-//
+/**
+ * 
+ * @param  {[type]} scope [description]
+ * @return {[type]}       [description]
+ */
+function dataForPackageJson (scope) {
+
+	var sails = scope.sails;
+
+	// Override sails version temporarily
+	var sailsVersionDependency = '~' + sails.version;
+	sailsVersionDependency = 'git://github.com/balderdashy/sails.git#v0.10';
+
+	return {
+		name: options.appName,
+		'private': true,
+		version: '0.0.0',
+		description: 'a Sails application',
+		dependencies: {
+			'sails'			: sailsVersionDependency,
+			'sails-disk'	: sails.dependencies['sails-disk'],
+			'ejs'			: sails.dependencies['ejs'],
+			'grunt'			: sails.dependencies['grunt']
+		},
+		scripts: {
+			// TODO: Include this later when we have "sails test" ready.
+			// test: './node_modules/mocha/bin/mocha -b',
+			start: 'node app.js',
+			debug: 'node debug app.js'
+		},
+		main: 'app.js',
+		repository: '',
+		author: scope.author,
+		license: ''
+	};
+}
