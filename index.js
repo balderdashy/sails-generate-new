@@ -27,7 +27,7 @@ module.exports = {
 		'.': ['backend','frontend'],
 		'./.gitignore': { copy: path.resolve(__dirname, './templates/gitignore') },
 		'./README.md': { ejs: path.resolve(__dirname, './templates/README.md') },
-		'./package.json': { jsonfile: { data: dataForPackageJSON() } },
+		'./package.json': { jsonfile: dataForPackageJSON },
 		'./app.js': { copy: path.resolve(__dirname, './templates/app.js') }
 	}
 };
@@ -39,7 +39,7 @@ module.exports = {
  * @param  {[type]} scope [description]
  * @return {[type]}       [description]
  */
-function dataForPackageJson (scope) {
+function dataForPackageJSON (scope) {
 
 	var sails = scope.sails;
 
@@ -48,7 +48,7 @@ function dataForPackageJson (scope) {
 	sailsVersionDependency = 'git://github.com/balderdashy/sails.git#v0.10';
 
 	return {
-		name: options.appName,
+		name: scope.appName,
 		'private': true,
 		version: '0.0.0',
 		description: 'a Sails application',
