@@ -8,10 +8,13 @@
  */
 module.exports = {
 	targets: {
-		'./:arg0': { exec: function (scope, cb) {
-			scope.output.push('Running generator (sails-generate-new) @ `'+scope.rootPath+'`...');
-			cb();
-		} }
+
+		'.': ['backend', 'frontend']
+
+		// './:arg0': { exec: function (scope, cb) {
+		// 	scope.output.push('Running generator (sails-generate-new) @ `'+scope.rootPath+'`...');
+		// 	cb();
+		// } }
 	}
 };
 
