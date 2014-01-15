@@ -8,11 +8,15 @@ module.exports = function(scope) {
 
 	return {
 		generators: {
-			options: {
+
+			// Default values of scope variables
+			scope: {
 				engine: 'ejs',
 				linker: true,
 				adapter: 'sails-disk'
 			},
+
+			// The module to use for each known type of generator
 			modules: {
 				new: 'sails-generate-new',
 				backend: 'sails-generate-backend',

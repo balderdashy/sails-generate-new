@@ -29,7 +29,7 @@ module.exports = {
 
 		'.': ['backend','frontend'],
 		'./.gitignore': { copy: path.resolve(__dirname, './templates/gitignore') },
-		'./README.md': { ejs: path.resolve(__dirname, './templates/README.md') },
+		'./README.md': { template: path.resolve(__dirname, './templates/README.md') },
 		'./package.json': { jsonfile: packageJSON },
 		'./.sailsrc': { jsonfile: sailsrc },
 		'./app.js': { copy: path.resolve(__dirname, './templates/app.js') }
