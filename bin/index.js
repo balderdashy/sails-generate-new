@@ -3,7 +3,7 @@
  */
 
 var path = require('path');
-var sailsgen = require('sails-generate');
+var sailsgen = require('sails-generate/lib/generate');
 var Generator = require('../lib');
 
 
