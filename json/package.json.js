@@ -9,7 +9,7 @@ module.exports = function dataForPackageJSON (scope) {
 	var sails = scope.sails;
 
 	// Override sails version temporarily
-	var sailsVersionDependency = '~' + sails.version;
+	var sailsVersionDependency = '~' + scope.sailsPackageJSON.version;
 	sailsVersionDependency = 'git://github.com/balderdashy/sails.git#v0.10';
 
 	return {
@@ -19,9 +19,9 @@ module.exports = function dataForPackageJSON (scope) {
 		description: 'a Sails application',
 		dependencies: {
 			'sails'			: sailsVersionDependency,
-			'sails-disk'	: sails.dependencies['sails-disk'],
-			'ejs'			: sails.dependencies['ejs'],
-			'grunt'			: sails.dependencies['grunt']
+			'sails-disk'	: scope.sailsPackageJSON.dependencies['sails-disk'],
+			'ejs'			: scope.sailsPackageJSON.dependencies['ejs'],
+			'grunt'			: scope.sailsPackageJSON.dependencies['grunt']
 		},
 		scripts: {
 			// TODO: Include this later when we have "sails test" ready.
