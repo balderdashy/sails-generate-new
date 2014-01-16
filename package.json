@@ -2,20 +2,36 @@
   "name": "sails-generate-new",
   "version": "0.10.1",
   "description": "Generate a new Sails app.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
-    "new",
+    "controller",
     "generator",
     "sails",
     "generate",
     "plugin"
   ],
-  "author": "a Node.js/Sails.js Contributor",
+  "author": "balderdashy",
   "license": "MIT",
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": ">=2.4.x",
+    "merge-defaults": ">=0.1.0"
+  },
+  "devDependencies": {
+    "sails-generate": "*",
+    "reportback": "*",
+    "fs-extra": "*",
+    "sails-generate-backend": "*",
+    "sails-generate-frontend": "*"
+  },
+  "sails": {
+    "generator": {
+      "name": "new",
+      "behavior": "overrides `sails new`",
+      "sailsVersion": "~0.10.0",
+      "main": "lib/index"
+    }
   }
 }
