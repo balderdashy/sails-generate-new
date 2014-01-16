@@ -22,9 +22,7 @@
   "devDependencies": {
     "sails-generate": "*",
     "reportback": "*",
-    "fs-extra": "*",
-    "sails-generate-backend": "*",
-    "sails-generate-frontend": "*"
+    "fs-extra": "*"
   },
   "sails": {
     "generator": {
