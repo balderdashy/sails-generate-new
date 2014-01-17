@@ -17,7 +17,8 @@
   "license": "MIT",
   "dependencies": {
     "lodash": ">=2.4.x",
-    "merge-defaults": ">=0.1.0"
+    "merge-defaults": ">=0.1.0",
+    "async": "~0.2.9"
   },
   "devDependencies": {
     "sails-generate": "*",
