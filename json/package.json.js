@@ -6,7 +6,7 @@
  */
 module.exports = function dataForPackageJSON (scope) {
 
-	var sails = scope.sails;
+	scope.sailsPackageJSON = { version: '?.?.?', dependencies: {} };
 
 	// Override sails version temporarily
 	var sailsVersionDependency = '~' + scope.sailsPackageJSON.version;

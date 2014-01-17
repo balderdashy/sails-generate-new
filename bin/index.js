@@ -3,7 +3,7 @@
  */
 
 var path = require('path');
-var sailsgen = require('sails-generate');
+var sailsgen = require('sails-generate/lib/generate');
 var Generator = require('../lib');
 
 
@@ -15,7 +15,7 @@ var Generator = require('../lib');
 
 
 sailsgen(Generator, {
-	rootPath: path.resolve(process.cwd(), process.argv[2] || ''),
+	args: [process.argv[2] || ''],
 	sails: {
 		version: '0',
 		dependencies: {
