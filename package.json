@@ -31,5 +31,10 @@
       "sailsVersion": "~0.10.0",
       "main": "lib/index"
     }
+  },
+  "optionalDependencies": {
+    "sails-generate-backend": "~0.10.1",
+    "sails-generate-frontend": "~0.10.1",
+    "sails-generate-gruntfile": "~0.10.2"
   }
 }
