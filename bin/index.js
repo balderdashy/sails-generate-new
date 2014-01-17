@@ -14,6 +14,7 @@ var Generator = require('../lib');
 //
 
 
+console.log(path.resolve(process.cwd(), process.argv[2] || ''));
 sailsgen(Generator, {
 	rootPath: path.resolve(process.cwd(), process.argv[2] || ''),
 	sails: {
