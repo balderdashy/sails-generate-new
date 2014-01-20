@@ -18,10 +18,10 @@ module.exports = function dataForPackageJSON (scope) {
 		version: '0.0.0',
 		description: 'a Sails application',
 		dependencies: {
-			'sails'			: sailsVersionDependency,
-			'sails-disk'	: scope.sailsPackageJSON.dependencies['sails-disk'],
-			'ejs'			: scope.sailsPackageJSON.dependencies['ejs'],
-			'grunt'			: scope.sailsPackageJSON.dependencies['grunt']
+			'sails'     : sailsVersionDependency,
+			'sails-disk': scope.sailsPackageJSON.dependencies['sails-disk'],
+			'ejs'       : scope.sailsPackageJSON.dependencies['ejs'],
+			'grunt'     : scope.sailsPackageJSON.dependencies['grunt']
 		},
 		scripts: {
 			// TODO: Include this later when we have "sails test" ready.
