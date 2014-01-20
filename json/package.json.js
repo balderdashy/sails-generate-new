@@ -6,11 +6,11 @@
  */
 module.exports = function dataForPackageJSON (scope) {
 
-	scope.sailsPackageJSON = { version: '?.?.?', dependencies: {} };
+	var sailsVersionDependency = '~' + scope.sailsPackageJSON.version;
 
 	// Override sails version temporarily
-	var sailsVersionDependency = '~' + scope.sailsPackageJSON.version;
 	sailsVersionDependency = 'git://github.com/balderdashy/sails.git#v0.10';
+
 
 	return {
 		name: scope.appName,
@@ -19,20 +19,20 @@ module.exports = function dataForPackageJSON (scope) {
 		description: 'a Sails application',
 		dependencies: {
 			'sails'     : sailsVersionDependency,
-			'sails-disk': scope.sailsPackageJSON.dependencies['sails-disk'],
-			'ejs'       : scope.sailsPackageJSON.dependencies['ejs'],
-			'grunt'     : scope.sailsPackageJSON.dependencies['grunt'],
-			'grunt-contrib-sync': scope.sailsPackageJSON.dependencies['grunt-contrib-sync'],
-			'grunt-contrib-copy': scope.sailsPackageJSON.dependencies['grunt-contrib-copy'],
-	    'grunt-contrib-clean': scope.sailsPackageJSON.dependencies['grunt-contrib-clean'],
-	    'grunt-contrib-concat': scope.sailsPackageJSON.dependencies['grunt-contrib-concat'],
-	    'grunt-sails-linker': scope.sailsPackageJSON.dependencies['grunt-contrib-linker'],
-	    'grunt-contrib-jst': scope.sailsPackageJSON.dependencies['grunt-contrib-jst'],
-	    'grunt-contrib-watch': scope.sailsPackageJSON.dependencies['grunt-contrib-watch'],
-	    'grunt-contrib-uglify': scope.sailsPackageJSON.dependencies['grunt-contrib-uglify'],
-	    'grunt-contrib-cssmin': scope.sailsPackageJSON.dependencies['grunt-contrib-cssmin'],
-	    'grunt-contrib-less': scope.sailsPackageJSON.dependencies['grunt-contrib-less'],
-	    'grunt-contrib-coffee': scope.sailsPackageJSON.dependencies['grunt-contrib-coffee']
+			'sails-disk': getDependencyVersion(package, 'sails-disk'),
+			'ejs'       : getDependencyVersion(package, 'ejs'),
+			'grunt'     : getDependencyVersion(package, 'grunt'),
+			'grunt-contrib-sync': getDependencyVersion(package, 'grunt-contrib-sync'),
+			'grunt-contrib-copy': getDependencyVersion(package, 'grunt-contrib-copy'),
+	    'grunt-contrib-clean': getDependencyVersion(package, 'grunt-contrib-clean'),
+	    'grunt-contrib-concat': getDependencyVersion(package, 'grunt-contrib-concat'),
+	    'grunt-sails-linker': getDependencyVersion(package, 'grunt-contrib-linker'),
+	    'grunt-contrib-jst': getDependencyVersion(package, 'grunt-contrib-jst'),
+	    'grunt-contrib-watch': getDependencyVersion(package, 'grunt-contrib-watch'),
+	    'grunt-contrib-uglify': getDependencyVersion(package, 'grunt-contrib-uglify'),
+	    'grunt-contrib-cssmin': getDependencyVersion(package, 'grunt-contrib-cssmin'),
+	    'grunt-contrib-less': getDependencyVersion(package, 'grunt-contrib-less'),
+	    'grunt-contrib-coffee': getDependencyVersion(package, 'grunt-contrib-coffee')
 		},
 		scripts: {
 			// TODO: Include this later when we have "sails test" ready.
@@ -46,3 +46,24 @@ module.exports = function dataForPackageJSON (scope) {
 		license: ''
 	};
 };
+
+
+
+
+
+/**
+ * getDependencyVersion
+ * 
+ * @param  {Object} packageJSON
+ * @param  {String} module
+ * @return {String}
+ * @api private
+ */
+
+function getDependencyVersion (packageJSON, module) {
+	return (
+		packageJSON.dependencies[module] ||
+		packageJSON.devDependencies[module] ||
+		packageJSON.optionalDependencies[module]
+	);
+}
