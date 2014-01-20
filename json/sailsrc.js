@@ -6,34 +6,19 @@
  */
 module.exports = function(scope) {
 
-	return {
-		generators: {
+	var package = {};
+	package.generators = {};
+	package.generators.modules = {};
 
-			// Default values of scope variables
-			scope: {
-				engine: 'ejs',
-				linker: true,
-				adapter: 'sails-disk'
-			},
+	//
+	// if scope has exceptional config, include it in the rc file:
+	// The module to use for each known type of generator
+	// 
+	
+	if (scope.coffee) {
+		package.generators.modules.model = 'sails-generate-model-coffee';
+		package.generators.modules.controller = 'sails-generate-controller-coffee';
+	}
 
-			// The module to use for each known type of generator
-			modules: {
-				new: 'sails-generate-new',
-				backend: 'sails-generate-backend',
-				frontend: 'sails-generate-frontend',
-				gruntfile: 'sails-generate-gruntfile',
-				model: 'sails-generate-model',
-				controller: 'sails-generate-controller',
-				api: 'sails-generate-api',
-				policy: 'sails-generate-policy',
-				service: 'sails-generate-service',
-				apiresponse: 'sails-generate-apiresponse',
-				blueprints: 'sails-generate-blueprints',
-				view: 'sails-generate-view',
-				adapter: 'sails-generate-adapter',
-				generator: 'sails-generate-generator',
-				hook: 'sails-generate-hook'
-			}
-		}
-	};
+	return package;
 };
