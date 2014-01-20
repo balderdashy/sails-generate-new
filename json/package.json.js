@@ -1,3 +1,11 @@
+/**
+ * Module dependencies
+ */
+
+var _ = require('lodash')
+	, util = require('util');
+
+
 
 /**
  * 
@@ -6,17 +14,20 @@
  */
 module.exports = function dataForPackageJSON (scope) {
 
-	var sailsVersionDependency = '~' + scope.sailsPackageJSON.version;
+	var package = scope.sailsPackageJSON || {};
+
+	var sailsVersionDependency = '~' + package.version;
 
 	// Override sails version temporarily
 	sailsVersionDependency = 'git://github.com/balderdashy/sails.git#v0.10';
 
 
-	return {
+	return _.defaults(scope.appPackageJSON || {}, {
 		name: scope.appName,
-		'private': true,
+		private: true,
 		version: '0.0.0',
 		description: 'a Sails application',
+		keywords: [],
 		dependencies: {
 			'sails'     : sailsVersionDependency,
 			'sails-disk': getDependencyVersion(package, 'sails-disk'),
@@ -35,16 +46,17 @@ module.exports = function dataForPackageJSON (scope) {
 	    'grunt-contrib-coffee': getDependencyVersion(package, 'grunt-contrib-coffee')
 		},
 		scripts: {
-			// TODO: Include this later when we have "sails test" ready.
-			// test: './node_modules/mocha/bin/mocha -b',
 			start: 'node app.js',
 			debug: 'node debug app.js'
 		},
 		main: 'app.js',
-		repository: '',
-		author: scope.author,
+		repository: {
+			type: 'git',
+			url: util.format('git://github.com/%s/%s.git', scope.github.username, scope.appName)
+		},
+		author: scope.author || '',
 		license: ''
-	};
+	});
 };
 
 
