@@ -18,7 +18,10 @@
   "dependencies": {
     "lodash": ">=2.4.x",
     "merge-defaults": ">=0.1.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "sails-generate-backend": "~0.10.1",
+    "sails-generate-frontend": "~0.10.1",
+    "sails-generate-gruntfile": "~0.10.2"
   },
   "devDependencies": {
     "sails-generate": "*",
@@ -32,10 +35,5 @@
       "sailsVersion": "~0.10.0",
       "main": "lib/index"
     }
-  },
-  "optionalDependencies": {
-    "sails-generate-backend": "~0.10.1",
-    "sails-generate-frontend": "~0.10.1",
-    "sails-generate-gruntfile": "~0.10.2"
   }
 }
