@@ -14,13 +14,9 @@ var _ = require('lodash')
  */
 module.exports = function dataForPackageJSON (scope) {
 
-	var package = scope.sailsPackageJSON || {};
-
-	var sailsVersionDependency = '~' + package.version;
-
-	// Override sails version temporarily
-	sailsVersionDependency = 'git://github.com/balderdashy/sails.git#v0.10';
-
+	var sailsPkg = scope.sailsPackageJSON || {};
+	
+	var sailsVersionDependency = sailsPkg.prerelease || ('~' + sailsPkg.version);
 
 	return _.defaults(scope.appPackageJSON || {}, {
 		name: scope.appName,
@@ -30,20 +26,20 @@ module.exports = function dataForPackageJSON (scope) {
 		keywords: [],
 		dependencies: {
 			'sails'     : sailsVersionDependency,
-			'sails-disk': getDependencyVersion(package, 'sails-disk'),
-			'ejs'       : getDependencyVersion(package, 'ejs'),
-			'grunt'     : getDependencyVersion(package, 'grunt'),
-			'grunt-contrib-sync': getDependencyVersion(package, 'grunt-contrib-sync'),
-			'grunt-contrib-copy': getDependencyVersion(package, 'grunt-contrib-copy'),
-	    'grunt-contrib-clean': getDependencyVersion(package, 'grunt-contrib-clean'),
-	    'grunt-contrib-concat': getDependencyVersion(package, 'grunt-contrib-concat'),
-	    'grunt-sails-linker': getDependencyVersion(package, 'grunt-contrib-linker'),
-	    'grunt-contrib-jst': getDependencyVersion(package, 'grunt-contrib-jst'),
-	    'grunt-contrib-watch': getDependencyVersion(package, 'grunt-contrib-watch'),
-	    'grunt-contrib-uglify': getDependencyVersion(package, 'grunt-contrib-uglify'),
-	    'grunt-contrib-cssmin': getDependencyVersion(package, 'grunt-contrib-cssmin'),
-	    'grunt-contrib-less': getDependencyVersion(package, 'grunt-contrib-less'),
-	    'grunt-contrib-coffee': getDependencyVersion(package, 'grunt-contrib-coffee')
+			'sails-disk': getDependencyVersion(sailsPkg, 'sails-disk'),
+			'ejs'       : getDependencyVersion(sailsPkg, 'ejs'),
+			'grunt'     : getDependencyVersion(sailsPkg, 'grunt'),
+			'grunt-contrib-sync': getDependencyVersion(sailsPkg, 'grunt-contrib-sync'),
+			'grunt-contrib-copy': getDependencyVersion(sailsPkg, 'grunt-contrib-copy'),
+	    'grunt-contrib-clean': getDependencyVersion(sailsPkg, 'grunt-contrib-clean'),
+	    'grunt-contrib-concat': getDependencyVersion(sailsPkg, 'grunt-contrib-concat'),
+	    'grunt-sails-linker': getDependencyVersion(sailsPkg, 'grunt-contrib-linker'),
+	    'grunt-contrib-jst': getDependencyVersion(sailsPkg, 'grunt-contrib-jst'),
+	    'grunt-contrib-watch': getDependencyVersion(sailsPkg, 'grunt-contrib-watch'),
+	    'grunt-contrib-uglify': getDependencyVersion(sailsPkg, 'grunt-contrib-uglify'),
+	    'grunt-contrib-cssmin': getDependencyVersion(sailsPkg, 'grunt-contrib-cssmin'),
+	    'grunt-contrib-less': getDependencyVersion(sailsPkg, 'grunt-contrib-less'),
+	    'grunt-contrib-coffee': getDependencyVersion(sailsPkg, 'grunt-contrib-coffee')
 		},
 		scripts: {
 			start: 'node app.js',
