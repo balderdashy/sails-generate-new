@@ -72,8 +72,8 @@ module.exports = function dataForPackageJSON (scope) {
 
 function getDependencyVersion (packageJSON, module) {
 	return (
-		packageJSON.dependencies[module] ||
-		packageJSON.devDependencies[module] ||
-		packageJSON.optionalDependencies[module]
+		packageJSON.dependencies && packageJSON.dependencies[module] ||
+		packageJSON.devDependencies && packageJSON.devDependencies[module] ||
+		packageJSON.optionalDependencies && packageJSON.optionalDependencies[module]
 	);
 }
