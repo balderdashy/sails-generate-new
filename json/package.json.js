@@ -15,8 +15,10 @@ var _ = require('lodash')
 module.exports = function dataForPackageJSON (scope) {
 
 	var sailsPkg = scope.sailsPackageJSON || {};
-	
-	var sailsVersionDependency = sailsPkg.prerelease || ('~' + sailsPkg.version);
+
+	// To determine the sails dep. to inject in the newly created package.json,
+	// use sails.prerelease in package.json. If not specified, just use `version`
+	var sailsVersionDependency = (sailsPkg.sails && sailsPkg.sails.prerelease) || ('~' + sailsPkg.version);
 
 	return _.defaults(scope.appPackageJSON || {}, {
 		name: scope.appName,
