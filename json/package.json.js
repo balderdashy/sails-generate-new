@@ -31,6 +31,7 @@ module.exports = function dataForPackageJSON (scope) {
 			'sails-disk': getDependencyVersion(sailsPkg, 'sails-disk'),
 			'ejs'       : getDependencyVersion(sailsPkg, 'ejs'),
 			'grunt'     : getDependencyVersion(sailsPkg, 'grunt'),
+			'glob'     : getDependencyVersion(sailsPkg, 'glob'),
 			'grunt-sync': getDependencyVersion(sailsPkg, 'grunt-sync'),
 			'grunt-contrib-copy': getDependencyVersion(sailsPkg, 'grunt-contrib-copy'),
 	    	'grunt-contrib-clean': getDependencyVersion(sailsPkg, 'grunt-contrib-clean'),
