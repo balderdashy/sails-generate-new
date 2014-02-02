@@ -28,12 +28,10 @@
     "sails-generate-frontend": "~0.10.1",
     "sails-generate-gruntfile": "~0.10.2"
   },
-  "sails": {
-    "generator": {
-      "name": "new",
-      "behavior": "overrides `sails new`",
-      "sailsVersion": "~0.10.0",
-      "main": "lib/index"
-    }
+  "sailsGenerator": {
+    "type": "new",
+    "behavior": "default implementation of `sails new`",
+    "sailsVersion": "~0.10.0",
+    "main": "lib/index"
   }
 }
