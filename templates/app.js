@@ -19,9 +19,10 @@
  */
 
 // Ensure a "sails" can be located:
-var sails;
+var sails, rc;
 try {
 	sails = require('sails');
+	rc = require('rc');
 }
 catch (e) {
 	console.error('To run an app using `node app.js`, you usually need to have a version of `sails` installed in the same directory as your app.');
@@ -34,4 +35,4 @@ catch (e) {
 }
 
 // Start server
-sails.lift();
+sails.lift(rc('sails'));
