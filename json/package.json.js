@@ -17,7 +17,8 @@ module.exports = function dataForPackageJSON (scope) {
 	var sailsPkg = scope.sailsPackageJSON || {};
 
 	// To determine the sails dep. to inject in the newly created package.json,
-	// use sails.prerelease in package.json. If not specified, just use `version`
+	// use `sails.prerelease` specified in the package.json of Sails itself.
+	// If a `prerelease` version no. is not specified, just use `version`
 	var sailsVersionDependency = (sailsPkg.sails && sailsPkg.sails.prerelease) || ('~' + sailsPkg.version);
 
 	return _.defaults(scope.appPackageJSON || {}, {
@@ -27,12 +28,13 @@ module.exports = function dataForPackageJSON (scope) {
 		description: 'a Sails application',
 		keywords: [],
 		dependencies: {
-			'sails'     : sailsVersionDependency,
-			'sails-disk': getDependencyVersion(sailsPkg, 'sails-disk'),
-			'rc'        : getDependencyVersion(sailsPkg, 'rc'),
-			'ejs'       : getDependencyVersion(sailsPkg, 'ejs'),
-			'grunt'     : getDependencyVersion(sailsPkg, 'grunt'),
-			'grunt-sync': getDependencyVersion(sailsPkg, 'grunt-sync'),
+			'sails'      : sailsVersionDependency,
+			'sails-disk' : getDependencyVersion(sailsPkg, 'sails-disk'),
+			'rc'         : getDependencyVersion(sailsPkg, 'rc'),
+			'include-all': getDependencyVersion(sailsPkg, 'include-all'),
+			'ejs'        : getDependencyVersion(sailsPkg, 'ejs'),
+			'grunt'      : getDependencyVersion(sailsPkg, 'grunt'),
+			'grunt-sync' : getDependencyVersion(sailsPkg, 'grunt-sync'),
 			'grunt-contrib-copy': getDependencyVersion(sailsPkg, 'grunt-contrib-copy'),
 			'grunt-contrib-clean': getDependencyVersion(sailsPkg, 'grunt-contrib-clean'),
 			'grunt-contrib-concat': getDependencyVersion(sailsPkg, 'grunt-contrib-concat'),
