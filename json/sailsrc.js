@@ -16,8 +16,7 @@ module.exports = function(scope) {
 	// 
 	
 	if (scope.coffee) {
-		package.generators.modules.model = 'sails-generate-model-coffee';
-		package.generators.modules.controller = 'sails-generate-controller-coffee';
+		package.generators.coffee = true;
 	}
 
 	return package;
