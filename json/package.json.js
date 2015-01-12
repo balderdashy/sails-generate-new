@@ -21,7 +21,8 @@ module.exports = function dataForPackageJSON (scope) {
 	// If a `prerelease` version no. is not specified, just use `version`
 	var sailsVersionDependency = (sailsPkg.sails && sailsPkg.sails.prerelease) || ('~' + sailsPkg.version);
 
-	return _.defaults(scope.appPackageJSON || {}, {
+	// Creating default package.json file content
+	var defaultPackageJSONContent = {
 		name: scope.appName,
 		private: true,
 		version: '0.0.0',
@@ -57,7 +58,38 @@ module.exports = function dataForPackageJSON (scope) {
 		},
 		author: scope.author || '',
 		license: ''
-	});
+	};
+
+	//
+	// Check for `packagejson` configuration
+	//
+
+	if (scope.packagejson && _.isObject(scope.packagejson)) {
+		//
+		// Adding new dependencies to package.json
+		//
+		_.merge(defaultPackageJSONContent, (scope.packagejson || {}));
+
+		//
+		// Remove dependencies that has false as version
+		// If somebody don't need dependency it could be removed using passing to scope:
+		//
+		// ```
+		// packagejson: {
+		// 		dependencies: {
+		// 			ejs: false
+		// 		}
+		// }
+		// ```
+		//
+		if (scope.packagejson.dependencies) {
+			_.omit(defaultPackageJSONContent.dependencies, function(value) {
+				return value === false;
+			});
+		}
+	}
+
+	return _.defaults(scope.appPackageJSON || {}, defaultPackageJSONContent);
 };
 
 
