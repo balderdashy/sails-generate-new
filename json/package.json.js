@@ -28,27 +28,27 @@ module.exports = function dataForPackageJSON (scope) {
 		description: 'a Sails application',
 		keywords: [],
 		dependencies: {
-			'sails'      : sailsVersionDependency,
-			'sails-disk' : getDependencyVersion(sailsPkg, 'sails-disk'),
-			'rc'         : getDependencyVersion(sailsPkg, 'rc'),
-			'include-all': getDependencyVersion(sailsPkg, 'include-all'),
-			'ejs'        : getDependencyVersion(sailsPkg, 'ejs'),
-			'grunt'      : getDependencyVersion(sailsPkg, 'grunt'),
-			'grunt-sync' : getDependencyVersion(sailsPkg, 'grunt-sync'),
-			'grunt-contrib-copy': getDependencyVersion(sailsPkg, 'grunt-contrib-copy'),
+			'ejs': getDependencyVersion(sailsPkg, 'ejs'),
+			'grunt': getDependencyVersion(sailsPkg, 'grunt'),
 			'grunt-contrib-clean': getDependencyVersion(sailsPkg, 'grunt-contrib-clean'),
+			'grunt-contrib-coffee': getDependencyVersion(sailsPkg, 'grunt-contrib-coffee'),
 			'grunt-contrib-concat': getDependencyVersion(sailsPkg, 'grunt-contrib-concat'),
-			'grunt-sails-linker': getDependencyVersion(sailsPkg, 'grunt-sails-linker'),
-			'grunt-contrib-jst': getDependencyVersion(sailsPkg, 'grunt-contrib-jst'),
-			'grunt-contrib-watch': getDependencyVersion(sailsPkg, 'grunt-contrib-watch'),
-			'grunt-contrib-uglify': getDependencyVersion(sailsPkg, 'grunt-contrib-uglify'),
+			'grunt-contrib-copy': getDependencyVersion(sailsPkg, 'grunt-contrib-copy'),
 			'grunt-contrib-cssmin': getDependencyVersion(sailsPkg, 'grunt-contrib-cssmin'),
+			'grunt-contrib-jst': getDependencyVersion(sailsPkg, 'grunt-contrib-jst'),
 			'grunt-contrib-less': getDependencyVersion(sailsPkg, 'grunt-contrib-less'),
-			'grunt-contrib-coffee': getDependencyVersion(sailsPkg, 'grunt-contrib-coffee')
+			'grunt-contrib-uglify': getDependencyVersion(sailsPkg, 'grunt-contrib-uglify'),
+			'grunt-contrib-watch': getDependencyVersion(sailsPkg, 'grunt-contrib-watch'),
+			'grunt-sails-linker': getDependencyVersion(sailsPkg, 'grunt-sails-linker'),
+			'grunt-sync': getDependencyVersion(sailsPkg, 'grunt-sync'),
+			'include-all': getDependencyVersion(sailsPkg, 'include-all'),
+			'rc': getDependencyVersion(sailsPkg, 'rc'),
+			'sails': sailsVersionDependency,
+			'sails-disk': getDependencyVersion(sailsPkg, 'sails-disk')
 		},
 		scripts: {
-			start: 'node app.js',
-			debug: 'node debug app.js'
+			debug: 'node debug app.js',
+			start: 'node app.js'
 		},
 		main: 'app.js',
 		repository: {
