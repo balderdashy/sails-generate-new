@@ -8,7 +8,7 @@ var _ = require('lodash')
 
 
 /**
- * 
+ *
  * @param  {[type]} scope [description]
  * @return {[type]}       [description]
  */
@@ -29,6 +29,12 @@ module.exports = function dataForPackageJSON (scope) {
 		keywords: [],
 		dependencies: {
 			'ejs': getDependencyVersion(sailsPkg, 'ejs'),
+			'rc': getDependencyVersion(sailsPkg, 'rc'),
+			'sails': sailsVersionDependency,
+			'sails-disk': getDependencyVersion(sailsPkg, 'sails-disk'),
+			'include-all': getDependencyVersion(sailsPkg, 'include-all')
+		},
+		devDependencies: {
 			'grunt': getDependencyVersion(sailsPkg, 'grunt'),
 			'grunt-contrib-clean': getDependencyVersion(sailsPkg, 'grunt-contrib-clean'),
 			'grunt-contrib-coffee': getDependencyVersion(sailsPkg, 'grunt-contrib-coffee'),
@@ -40,11 +46,7 @@ module.exports = function dataForPackageJSON (scope) {
 			'grunt-contrib-uglify': getDependencyVersion(sailsPkg, 'grunt-contrib-uglify'),
 			'grunt-contrib-watch': getDependencyVersion(sailsPkg, 'grunt-contrib-watch'),
 			'grunt-sails-linker': getDependencyVersion(sailsPkg, 'grunt-sails-linker'),
-			'grunt-sync': getDependencyVersion(sailsPkg, 'grunt-sync'),
-			'include-all': getDependencyVersion(sailsPkg, 'include-all'),
-			'rc': getDependencyVersion(sailsPkg, 'rc'),
-			'sails': sailsVersionDependency,
-			'sails-disk': getDependencyVersion(sailsPkg, 'sails-disk')
+			'grunt-sync': getDependencyVersion(sailsPkg, 'grunt-sync')
 		},
 		scripts: {
 			debug: 'node debug app.js',
@@ -66,7 +68,7 @@ module.exports = function dataForPackageJSON (scope) {
 
 /**
  * getDependencyVersion
- * 
+ *
  * @param  {Object} packageJSON
  * @param  {String} module
  * @return {String}
