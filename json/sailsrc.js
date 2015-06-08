@@ -13,11 +13,16 @@ module.exports = function(scope) {
 	//
 	// if scope has exceptional config, include it in the rc file:
 	// The module to use for each known type of generator
-	// 
-	
+	//
+
 	if (scope.coffee) {
 		package.generators.modules.model = 'sails-generate-model-coffee';
 		package.generators.modules.controller = 'sails-generate-controller-coffee';
+	}
+
+	if (!scope.frontend) {
+		package.hooks = {};
+		package.hooks.grunt = false;
 	}
 
 	return package;
