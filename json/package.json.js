@@ -20,7 +20,9 @@ module.exports = function dataForPackageJSON(scope) {
   // use `sails.prerelease` specified in the package.json of Sails itself.
   // If a `prerelease` version no. is not specified, just use `version`
   var sailsVersionDependency = (sailsPkg.sails && sailsPkg.sails.prerelease) || ('~' + sailsPkg.version);
-	return _.defaults(scope.appPackageJSON || {}, {
+
+  // Creating default package.json file content
+	var defaultPackageJSONContent = {
 		name: scope.appName,
 		private: true,
 		version: '0.0.0',
@@ -56,8 +58,7 @@ module.exports = function dataForPackageJSON(scope) {
 		},
 		author: scope.author || '',
 		license: ''
-	});
-};
+	};
 
   //
   // Check for `packageJson` configuration
