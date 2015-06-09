@@ -16,9 +16,9 @@
   "author": "balderdashy",
   "license": "MIT",
   "dependencies": {
-    "lodash": ">=2.4.x",
-    "merge-defaults": ">=0.1.0",
-    "async": "~0.2.9"
+    "lodash": ">=3.9.x",
+    "merge-defaults": ">=0.2.x",
+    "async": ">=1.2.x"
   },
   "devDependencies": {
     "sails-generate": "*",
