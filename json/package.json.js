@@ -22,7 +22,7 @@ module.exports = function dataForPackageJSON(scope) {
   var sailsVersionDependency = (sailsPkg.sails && sailsPkg.sails.prerelease) || ('~' + sailsPkg.version);
 
   // List default dependencies used for apps with a front-end
-  var dependenciesFrontend = {
+  var dependenciesFrontAndBackend = {
     'ejs': getDependencyVersion(sailsPkg, 'ejs'),
     'grunt': getDependencyVersion(sailsPkg, 'grunt'),
     'grunt-contrib-clean': getDependencyVersion(sailsPkg, 'grunt-contrib-clean'),
@@ -43,7 +43,7 @@ module.exports = function dataForPackageJSON(scope) {
   };
 
   // List default dependencies used for back-end only apps (--no-front-end)
-  var dependenciesBackend = {
+  var dependenciesBackendOnly = {
     'include-all': getDependencyVersion(sailsPkg, 'include-all'),
     'rc': getDependencyVersion(sailsPkg, 'rc'),
     'sails': sailsVersionDependency,
@@ -57,7 +57,7 @@ module.exports = function dataForPackageJSON(scope) {
     version: '0.0.0',
     description: 'a Sails application',
     keywords: [],
-    dependencies: (scope['front-end'] === false ? dependenciesBackend : dependenciesFrontend),
+    dependencies: (scope['front-end'] === false ? dependenciesBackendOnly : dependenciesFrontAndBackend),
     scripts: {
       debug: 'node debug app.js',
       start: 'node app.js'
