@@ -83,7 +83,7 @@ module.exports = function dataForPackageJSON(scope) {
     // ```
     //
     if (scope.packageJson.dependencies) {
-      _.omit(defaultPackageJSONContent.dependencies, function(value) {
+      defaultPackageJSONContent.dependencies = _.omit(defaultPackageJSONContent.dependencies, function(value) {
         return value === false;
       });
     }
