@@ -20,7 +20,7 @@ module.exports = function(scope) {
     package.generators.modules.controller = 'sails-generate-controller-coffee';
   }
 
-  if (!scope.frontend) {
+  if (scope['front-end'] === false) {
     package.hooks = {};
     package.hooks.grunt = false;
   }
