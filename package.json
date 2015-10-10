@@ -16,10 +16,11 @@
   "author": "balderdashy",
   "license": "MIT",
   "dependencies": {
+    "async": ">=1.2.x",
+    "fs-extra": "*",
     "lodash": ">=3.9.x",
     "merge-defaults": ">=0.2.x",
-    "async": ">=1.2.x",
-    "fs-extra": "*"
+    "win-spawn": "^2.0.0"
   },
   "devDependencies": {
     "sails-generate": "*",
