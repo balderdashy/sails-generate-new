@@ -55,7 +55,7 @@ module.exports = function dataForPackageJSON(scope) {
     name: scope.appName,
     private: true,
     version: '0.0.0',
-    description: 'a Sails application',
+    description: scope.description || 'a Sails application',
     keywords: [],
     dependencies: (scope['frontend'] === false) ? dependenciesBackendOnly : dependenciesFrontAndBackend,
     scripts: {
