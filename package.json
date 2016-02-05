@@ -1,6 +1,6 @@
 {
   "name": "sails-generate-new",
-  "version": "0.10.24",
+  "version": "0.10.25",
   "description": "Generate a new Sails app.",
   "main": "lib/index.js",
   "scripts": {
