@@ -1,35 +1,17 @@
 # sails-generate-new
 
-A generator for Sails.js.
+Generate the files and directory structure for a new Sails app.
 
 
-## Usage
+## Issues
 
-#### On the command line
+See https://github.com/balderdashy/sails/blob/master/README.md#issue-submission
 
-```sh
-sails generate sails-generate-new
-```
-
-#### In a node script
-
-```javascript
-var generate = require('sails-generate');
-var scope = {};
-generate(require('sails-generate-new'), scope, function (err) {
-	if (err) throw err;
-
-	// Log output available in `scope` for your enjoyment:
-	console.log(scope);
-});
-```
-
-
-## Contributing to this generator
-
-See `CONTRIBUTING.md`.
 
 ## License
 
-See `LICENSE.md`.
+[Sails](http://sailsjs.com) is free and open-source under the [MIT License](http://sailsjs.com/license).
+
+
+![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png)
 

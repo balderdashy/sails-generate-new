@@ -4,30 +4,24 @@
   "description": "Generate a new Sails app.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "echo 'See tests in the GitHub repo for Sails core."
   },
   "keywords": [
-    "controller",
+    "new-app",
+    "automation",
     "generator",
     "sails",
+    "sails.js",
     "generate",
     "plugin"
   ],
-  "author": "balderdashy",
+  "author": "Mike McNeil",
   "license": "MIT",
   "dependencies": {
-    "async": "~1.2.0",
-    "cross-spawn-async": "^2.1.6",
-    "fs-extra": "*",
-    "lodash": "~3.9.0",
-    "merge-defaults": ">=0.2.x"
-  },
-  "devDependencies": {
-    "sails-generate": "*",
-    "reportback": "*",
-    "sails-generate-backend": "~0.12.2",
-    "sails-generate-frontend": "~0.12.3",
-    "sails-generate-gruntfile": "~0.10.10"
+    "async": "2.0.1",
+    "cross-spawn-async": "2.2.4",
+    "fs-extra": "0.30.0",
+    "lodash": "3.10.1"
   },
   "sailsGenerator": {
     "type": "new",
