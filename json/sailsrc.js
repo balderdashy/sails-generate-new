@@ -1,14 +1,18 @@
 /**
- * .sailsrc
+ * getSailsRcData()
  *
- * @param  {[type]} scope [description]
- * @return {[type]}       [description]
+ * Get the data that will be encoded in the
+ * newly-generated `.sailsrc` file.
+ *
+ * @param  {Dictionary} scope
+ * @returns {Dictionary}
  */
-module.exports = function(scope) {
 
-  var package = {};
-  package.generators = {};
-  package.generators.modules = {};
+module.exports = function getSailsRcData(scope) {
+
+  var sailsrcData = {};
+  sailsrcData.generators = {};
+  sailsrcData.generators.modules = {};
 
   //
   // if scope has exceptional config, include it in the rc file:
@@ -16,15 +20,15 @@ module.exports = function(scope) {
   //
 
   if (scope.coffee) {
-    package.generators.modules.model = 'sails-generate-model-coffee';
-    package.generators.modules.controller = 'sails-generate-controller-coffee';
+    sailsrcData.generators.modules.model = 'sails-generate-model-coffee';
+    sailsrcData.generators.modules.controller = 'sails-generate-controller-coffee';
   }
 
   if (scope['frontend'] === false) {
-    package.hooks = {};
-    package.hooks.grunt = false;
+    sailsrcData.hooks = {};
+    sailsrcData.hooks.grunt = false;
   }
 
-  return package;
+  return sailsrcData;
 
 };

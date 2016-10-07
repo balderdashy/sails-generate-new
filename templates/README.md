@@ -1,3 +1,3 @@
 # <%= appName %>
 
-a [Sails](http://sailsjs.org) application
+a [Sails](http://sailsjs.com) application
