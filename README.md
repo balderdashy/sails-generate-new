@@ -1,4 +1,4 @@
-# sails generate new 
+# sails generate new
 
 Generate the files and directory structure for a new Sails app.
 
