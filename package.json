@@ -26,6 +26,6 @@
   "sailsGenerator": {
     "type": "new",
     "behavior": "Default implementation of `sails new`",
-    "sailsVersion": "~0.11.0"
+    "sailsVersion": "^1.0.0"
   }
 }
