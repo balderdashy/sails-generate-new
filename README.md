@@ -10,7 +10,7 @@ sails new sweet-app
 
 To report a bug, [click here](http://sailsjs.com/bugs).
 
-> This is a built-in generator exposed by the `sails` command-line interface.  It is installed automatically when you run `npm install -g sails`.  For customization options, see [Extending Sails > Generators](http://sailsjs.com/documentation/concepts/extending-sails/generators).
+> This is a built-in generator exposed by the `sails` command-line interface.  It is installed automatically when you run `npm install sails -g`.  For customization options, see [Extending Sails > Generators](http://sailsjs.com/docs/concepts/extending-sails/generators).
 
 ## Contributing
 
