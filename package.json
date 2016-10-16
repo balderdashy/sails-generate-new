@@ -21,7 +21,8 @@
     "async": "2.0.1",
     "cross-spawn": "4.0.2",
     "fs-extra": "0.30.0",
-    "lodash": "3.10.1"
+    "lodash": "3.10.1",
+    "sails.io.js-dist": "^0.14.0"
   },
   "sailsGenerator": {
     "type": "new",
