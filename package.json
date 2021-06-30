@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo 'See tests in the GitHub repo for Sails core."
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/balderdashy/sails-generate-new.git"
+  },
   "keywords": [
     "new-app",
     "automation",
